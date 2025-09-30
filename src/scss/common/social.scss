@@ -1,0 +1,71 @@
+@use "sass:math";
+@use '/src/scss/variables.scss';
+@use '/src/scss/base/mixins.scss';
+
+.social{
+  &__list{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: -4px -8px;
+    padding: 0;
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      margin: -3px;
+    }
+  }
+  &__item{
+    padding: 4px 8px;
+    box-sizing: border-box;
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+      padding: 3px;
+    }
+  }
+  &__icon{
+    height: 28px;
+    width: 28px;
+    --color1:#fff;
+    --color2:#734CA5;
+    &Bg{
+      fill: variables.$white;
+    }
+    &Elem{
+      fill: variables.$phiolText;
+    }
+    transition: variables.$transtion;
+    @media (width >= #{mixins.toEm(1025)}){
+      &:hover{
+      .social__iconBg{
+        fill: variables.$phiolText;
+      }
+      .social__iconElem{
+        fill: variables.$white;
+      }
+      }
+    }
+    &:active{
+
+      .social__iconBg{
+        fill: variables.$phiolText;
+      }
+      .social__iconElem{
+        fill: #E1D8FC;
+      }
+    }
+    @media (width < #{mixins.toEm(700)}){
+      height: 24px;
+      width: 24px;
+    }
+    &--big{
+      height: 36px;
+      width: 36px;
+      @media (width < #{mixins.toEm(700)}){
+        height: 28px;
+        width: 28px;
+      }
+    }
+    path{
+      transition: variables.$transtion;
+    }
+
+  }
+}

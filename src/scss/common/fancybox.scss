@@ -1,0 +1,81 @@
+@use "sass:math";
+@use '/src/scss/variables.scss';
+@use '/src/scss/base/mixins.scss';
+
+.fancybox {
+
+  &__container {
+    --f-button-bg: transparent;
+    --fancybox-backdrop-bg: var(--backdrop-bg-color);
+    --f-button-width: max-content;
+    --f-button-height: max-content;
+    --f-button-svg-stroke-width: 2;
+    --f-button-color: var(--white);
+    --f-arrow-pos: #{mixins.toRem(4)};
+    --f-arrow-height: calc(100% - #{mixins.toRem(8)});
+    --f-arrow-width: #{mixins.toRem(38)};
+    --f-arrow-border-radius: #{mixins.toRem(10)};
+    --f-arrow-color: var(--violet-color);
+    --f-arrow-bg: var(--light-blocks-bg-color);
+    --f-arrow-hover-bg: var(--violet-color);
+    --f-carousel-slide-bg: var(--fancybox-slide-bg-color);
+
+    justify-content: center;
+  }
+
+  &__carousel {
+    flex: 0 0 auto;
+    background-color: var(--white);
+    border-radius: mixins.toRem(10);
+    padding: mixins.toRem(4) mixins.toRem(46);
+
+    .f-button.is-arrow {
+      &::before{
+        inset: 0;
+      }
+    }
+
+    .section-title {
+      order: -1;
+      margin: mixins.toRem(16) 0;
+
+      &:empty {
+        display: none;
+      }
+    }
+  }
+
+  &__backdrop {
+    z-index: 9;
+  }
+
+  &__slide {
+    --max-height-slide: #{mixins.vh(800,1140)};
+    max-height: var(--max-height-slide);
+    opacity: 0;
+    --f-drag-opacity: 0;
+    border-radius: mixins.toRem(10);
+    padding: 0;
+    &.has-html {
+      padding: 0;
+    }
+
+    &.is-selected {
+      opacity: 1;
+    }
+  }
+}
+
+.f-carousel {
+  &__toolbar {
+    translate: 0 -100%;
+  }
+}
+
+.f-button {
+  svg {
+    path {
+      stroke: var(--white);
+    }
+  }
+}

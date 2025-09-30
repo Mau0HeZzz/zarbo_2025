@@ -1,0 +1,64 @@
+@use "sass:math";
+@use '/src/scss/variables.scss';
+@use '/src/scss/base/mixins.scss';
+
+// Базовые стили спойлеров
+// Сниппет (HTML): spoller
+
+// Блок со спойлерами
+[data-spollers] {
+	display: grid;
+	gap: mixins.toRem(12);
+  @media (width < #{mixins.toEm(variables.$mobile)}){
+    gap: mixins.toRem(10);
+  }
+
+  summary {
+    width: 100%;
+    cursor: default;
+    text-align: left;
+    padding: mixins.toRem(21) mixins.toRem(36);
+    border-radius: mixins.toRem(10);
+    position: relative;
+    list-style: none;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: mixins.toRem(16);
+    &::marker,
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  &._spoller-init {
+    summary {
+      cursor: pointer;
+      justify-content: space-between;
+      &::after{
+        content:'';
+        flex: 0 0 mixins.toRem(23);
+        width: mixins.toRem(23);
+        height: mixins.toRem(13);
+        background-image: url(/img/icons/chevron_down.svg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: rotate 0.3s ease 0s;
+      }
+
+      &._spoller-active {
+        &::after{
+          rotate: -180deg;
+        }
+      }
+    }
+  }
+}
+
+// Контент спойлера
+.spollers__body {
+	padding: mixins.toRem(20);
+	border-radius: mixins.toRem(5);
+	border: 1px solid #eee;
+}

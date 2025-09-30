@@ -1,0 +1,95 @@
+<div id="callbackPopup" aria-hidden="true" class="popup callbackPopup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+      <div class="popup__dragclose" data-dragclose=""></div>
+			<button data-close type="button" class="popup__close">
+        <svg class="">
+          <use xlink:href="/img/sprite.svg#close-modal"></use>
+        </svg>
+      </button>
+      <div class="popup__body">
+        <h2 class="popup__title section-title">
+          Связаться с нами
+        </h2>
+        <form action="#" class="form">
+          <div class="form__errors"></div>
+          <div class="form__row">
+            <div class="form__col">
+              <label class="form__item">
+                <input type="text">
+                <span>Имя</span>
+              </label>
+              <label class="form__item">
+                <input type="text" data-required="email" data-inputmask="'alias':'email'" data-error="Это обязательное поле">
+                <span>Email *</span>
+              </label>
+              <label class="form__item">
+                <input type="text" data-required="phone" data-inputmask="'mask':'+7 (999) 999-99-99'" data-error="Это обязательное поле">
+                <span>Телефон *</span>
+              </label>
+            </div>
+            <div class="form__col">
+              <div class="form__item">
+                <textarea></textarea>
+                <span>Оставьте поле пустым или напишите о вашем проекте</span>
+              </div>
+            </div>
+          </div>
+          <div class="form__footer">
+            <button type="submit" class=" form__button btn btn-grad">
+              <span>Отправить</span>
+            </button>
+            <span class="form__info">Нажимая на&nbsp;кнопку «Отправить», Вы&nbsp;даете согласие на&nbsp;обработку своих <a href="https://zarbo.tech/legal/privacy">персональных данных</a></span>
+          </div>
+        </form>
+      </div>
+		</div>
+	</div>
+</div>
+<div id="successPopup" aria-hidden="true" class="popup successPopup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+      <div class="popup__dragclose" data-dragclose=""></div>
+			<button data-close type="button" class="popup__close">
+        <svg class="">
+          <use xlink:href="/img/sprite.svg#close-modal"></use>
+        </svg>
+      </button>
+      <div class="popup__body">
+        <i>
+          <svg width="59" height="48" viewBox="0 0 59 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.898438 27.6984L9.99844 18.4984L20.5984 29.1984L48.9984 0.398438L58.0984 9.59844L20.5984 47.5984L0.898438 27.6984ZM5.09844 27.6984L20.5984 43.2984L53.8984 9.69844L48.9984 4.69844L20.5984 33.2984L10.0984 22.7984L5.09844 27.6984Z" fill="#734CA5"></path>
+          </svg>
+        </i>
+        <h2 class="popup__subtitle">
+          Данные успешно отправлены!
+        </h2>
+      </div>
+		</div>
+	</div>
+</div>
+<div id="errorPopup" aria-hidden="true" class="popup successPopup">
+	<div class="popup__wrapper">
+		<div class="popup__content">
+      <div class="popup__dragclose" data-dragclose=""></div>
+			<button data-close type="button" class="popup__close">
+        <svg class="">
+          <use xlink:href="/img/sprite.svg#close-modal"></use>
+        </svg>
+      </button>
+      <div class="popup__body">
+        <i>
+          <svg width="38" height="48" viewBox="0 0 38 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 48V0H24.6L38 13.4V48H0ZM3 45H35V14.6L23.4 3H3V45ZM12.4 31.2L16.9 26.5L12.4 22L14.5 19.9L19 24.4L23.5 19.9L25.6 22L21.1 26.5L25.6 31L23.5 33.1L19 28.6L14.5 33.3L12.4 31.2Z" fill="#734CA5"></path>
+          </svg>
+        </i>
+        <h2 class="popup__subtitle">
+          Что-то пошло не так.
+        </h2>
+        <h2 class="popup__text">
+          Пожалуйста, попробуйте еще раз позже.
+        </h2>
+      </div>
+		</div>
+	</div>
+</div>

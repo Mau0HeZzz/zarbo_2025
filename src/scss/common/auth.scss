@@ -1,0 +1,61 @@
+@use "sass:math";
+@use '/src/scss/variables.scss';
+@use '/src/scss/base/mixins.scss';
+
+.auth{
+  &__items{
+    display: flex;
+    align-items: center;
+  }
+  &__icon{
+    height: 24px;
+    width: 24px;
+    fill: variables.$phiolText;
+    margin-right: 8px;
+    flex-shrink: 0;
+    @media (width < #{mixins.toEm(700)}){
+      fill: variables.$white;
+    }
+
+  }
+  &__link{
+    color: variables.$phiolText;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.28px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+   position: relative;
+    &::after{
+      content: '';
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: calc(100% - 32px);
+      border-bottom: 1px dashed rgba(#734ca5,.5);
+      transition: variables.$transtion;
+      opacity: 0;
+    }
+    @media (width >= #{mixins.toEm(1025)}){
+      transition: variables.$transtion;
+      &:hover{
+        &:after{
+          opacity: 1;
+        }
+      }
+    }
+    @media (width < #{mixins.toEm(variables.$tablet)}){
+        font-size: 12px;
+        letter-spacing: 0.02em;
+    }
+    @media (width < #{mixins.toEm(700)}){
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: variables.$white;
+    }
+  }
+}

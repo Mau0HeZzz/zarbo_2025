@@ -1,0 +1,37 @@
+// ===============
+// colors palette
+// ===============
+:root {
+  --white: #fff;
+  --black: #000;
+  --text-color: #464547;
+  --secontary-text-color: #8A7E95;
+  --dark-text-color: #1D1C1E;
+  --blocks-bg-color: #F2F2F7;
+  --light-blocks-bg-color: #F1ECFF;
+  --footer-bg-color: #E9E9F459;
+  --footer-bottom-bg-color: #D5D5E559;
+  --footer-border-color: #E7EAEC;
+  --footer-inner-border-color: var(--footer-border-color);
+  --about-prod-bd-color: #D2BCEE;
+  --platform-border-color: var(--footer-border-color);
+  --violet-color: #734CA5;
+  --light-violet-color: #F2F2FF;
+  --backdrop-bg-color: #00000033;
+  --modal_bg: var(--backdrop-bg-color);
+  --fancybox-slide-bg-color: #C4C4CE;
+  --light-dark-blocks: #E1D8FC;
+  --fancybox-slide-icon-bg-color: rgba(225, 216, 252, 0.7);
+  --form-placeholder-color: #AEA5B9;
+  --form-field-focus-color: #E8E8F3;
+  --error-color: #FF5C5C;
+  --info-color: #8B868F;
+  --link-active-bg-color: #D5D4E5;
+
+  --text-gradient: linear-gradient(90.16deg, #6A2CC7 3.3%, #A85DC8 21.33%, #E55962 43.05%);
+  --text-gradient-plus: linear-gradient(223.45deg, #EB5884 17.09%, #A05ED5 53.62%, #6124C5 91.35%);
+  --button-gradient: linear-gradient(268deg,#f86161 0,#872bcf 56.72%,#5d1ec3 100%);
+  --button-gradient-before: linear-gradient(268deg,#5d1ec3 0,#872bcf 40.62%,#f86161 100%);
+  --button-gradient-after: linear-gradient(268deg,#5d1ec3 0,#f86161 53.12%,#872bcf 100%);
+  --star-gradient: linear-gradient(90deg, #FF9892 49.86%, #6627B9 91.83%);
+}
