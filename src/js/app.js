@@ -259,24 +259,3 @@ import "./files/script.js";
 
 // Подключение основного файла стилей
 import "../scss/style.scss";
-
-
-const faqs = document.querySelectorAll('.faq .accordeon__item');
-let str = '';
-faqs.forEach(faq=>{
-  const headEl = faq.querySelector('.accordeon__head');
-  const bodyEl = faq.querySelector('.accordeon__body');
-
-  str += `
-    <details class="spollers-faq__item">
-      <summary class="spollers-faq__title">
-        ${headEl.textContent.trim()}
-      </summary>
-      <div class="spollers-faq__body">
-        ${bodyEl.innerHTML.trim()}
-      </div>
-    </details>
-  `.trim() + '\n';
-})
-
-console.log(str);
