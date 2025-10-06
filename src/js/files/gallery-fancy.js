@@ -3,6 +3,7 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  setFancyWithIframeHref();
   // console.log(Fancybox)
   const tpl = `<dialog class="fancybox__dialog">
     <div class="fancybox__container" tabindex="0" aria-label="{{MODAL}}">
@@ -64,3 +65,23 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
 })
+
+
+function setFancyWithIframeHref() {
+  const fancyLinksWithIframe = document.querySelectorAll('[data-fancybox][data-type="iframe"]');
+  if (fancyLinksWithIframe.length) {
+    for (let index = 0; index < fancyLinksWithIframe.length; index++) {
+      const link = fancyLinksWithIframe[index];
+      const linkHref = link.getAttribute('href');
+      if (linkHref.trim()&&linkHref !== '#') continue;
+
+      const iframe = link.querySelector('iframe');
+      if (!iframe) continue;
+
+      const src = iframe.getAttribute('src') || iframe.getAttribute('data-src');
+      if (!src) continue;
+
+      link.setAttribute('href', src);
+    }
+  }
+}
