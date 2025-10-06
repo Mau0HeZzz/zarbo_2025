@@ -339,7 +339,7 @@ img {
 [data-fancybox] {
   position: relative;
   cursor: pointer;
-  --fancybox-icon-bg: url(/img/icons/gallery_icon_image.svg);
+  --fancybox-icon-bg: url(../img/icons/gallery_icon_image.svg);
   &:has(>[data-src]._lazy-loaded),
   &:has(>*:not([data-src])) {
     &::before{
@@ -371,7 +371,7 @@ img {
     &[href*="webm"],
     &[href*="avi"],
     &.is-video {
-      --fancybox-icon-bg: url(/img/icons/gallery_icon_video.svg);
+      --fancybox-icon-bg: url(../img/icons/gallery_icon_video.svg);
       &::before{
         background-position: 55% 50%;
         opacity: 1;
