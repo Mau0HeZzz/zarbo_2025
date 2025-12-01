@@ -24,14 +24,12 @@
     @media (width < #{mixins.toEm(500)}){
       padding: 15px 0;
     }
-
   }
   &__burger{
-   display: none;
-   @media (width < #{mixins.toEm(700)}){
-    display: block;
-   }
-
+    display: none;
+    @media (width < #{mixins.toEm(700)}){
+      display: block;
+    }
   }
   &__logo{
     @media (width < #{mixins.toEm(variables.$tablet)}){
@@ -204,10 +202,8 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
 
 
   }
-  &.open{
-    .burger__line  {
-      background-color: variables.$white;
-    }
+  .menu-open & .burger__line  {
+    background-color: variables.$white;
   }
 
   &--close5 &__line--4,
@@ -237,25 +233,25 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
                 transform .2s ease-in-out;
   }
   // Open
-  &--close5.open &__line--1 {
+  .menu-open &--close5 &__line--1 {
     width: 0;
     transition: width .2s ease-in-out;
   }
-  &--close5.open &__line--2 {
+  .menu-open &--close5 &__line--2 {
     width: 0;
     transition: width .2s ease-in-out .1s;
   }
-  &--close5.open &__line--3 {
+  .menu-open &--close5 &__line--3 {
     width: 0;
     transition: width .2s ease-in-out .2s;
   }
-  &--close5.open &__line--4 {
+  .menu-open &--close5 &__line--4 {
     opacity: 1;
     transform: rotate(45deg) translate3d(0,0,0);
     transition: opacity .2s ease-in-out .2s,
                 transform .2s ease-in-out .2s;
   }
-  &--close5.open &__line--5 {
+  .menu-open &--close5 &__line--5 {
     opacity: 1;
     transform:  rotate(-45deg) translate3d(0,0,0);
     transition: opacity .2s ease-in-out .4s,

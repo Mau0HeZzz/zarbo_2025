@@ -420,8 +420,9 @@ export function menuInit() {
 	if (document.querySelector("[data-toggle-menu]")) {
 		document.addEventListener("click", function (e) {
 			if (bodyLockStatus && e.target.closest('[data-toggle-menu]')) {
-				bodyLockToggle();
-				document.documentElement.classList.toggle("menu-open");
+        document.documentElement.classList.contains("menu-open") ? menuClose() : menuOpen();
+				// bodyLockToggle();
+				// document.documentElement.classList.toggle("menu-open");
 			}
 		});
 	};
@@ -433,6 +434,11 @@ export function menuOpen() {
 export function menuClose() {
 	bodyUnlock();
 	document.documentElement.classList.remove("menu-open");
+
+  const isOpens = document.querySelectorAll('.mobile-menu .is-open');
+  if (isOpens.length) {
+    isOpens.forEach(el => el.classList.remove('is-open'));
+  }
 }
 // Модуль "показать еще" ============================================= ================================================== ================================================== ================================================== ====================
 export function showMore() {

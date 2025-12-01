@@ -42,7 +42,7 @@
       }
     }
     &:last-child{
-      .main-menu__link{
+      .main-menu__link:not([link-disabled]) {
         &:after{
           content: '';
           position: absolute;
@@ -94,7 +94,7 @@
     border-radius: mixins.toRem(10);
     &.is-current{
       z-index: 500;
-      background-color: variables.$lightDark;
+      color: var(--light-dark-blocks);
       &::before{
         opacity: 0;
       }
@@ -160,21 +160,21 @@
 
     }
   }
-  a[link-disabled]{
+  a[link-disabled] {
     position: relative;
     pointer-events: none;
-    &:after{
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(225, 216, 252) 75%);
-      @media (width < #{mixins.toEm(700)}){
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(72, 41, 111) 75%);
-      }
-    }
+    // &:after{
+    //   content: '';
+    //   position: absolute;
+    //   right: 0;
+    //   top: 0;
+    //   height: 100%;
+    //   width: 100%;
+    //   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(225, 216, 252) 75%);
+    //   @media (width < #{mixins.toEm(700)}){
+    //     background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgb(72, 41, 111) 75%);
+    //   }
+    // }
     span{
       position: absolute;
       right: mixins.toRem(2);

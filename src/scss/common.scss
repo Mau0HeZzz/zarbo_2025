@@ -330,7 +330,7 @@ img {
   width: var(--decor-width, #{mixins.toRem(100)});
   aspect-ratio: 1;
   rotate: var(--decor-rotate, 0deg);
-  background-image: url(/img/icons/star.svg);
+  background-image: url(../img/icons/star.svg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -481,7 +481,7 @@ img {
         left: 0;
         width: mixins.toRem(16);
         height: mixins.toRem(16);
-        background-image: url(/img/icons/star.svg);
+        background-image: url(../img/icons/star.svg);
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
@@ -776,7 +776,7 @@ img {
       min-width: mixins.toRem(330);
     }
     @container (width <= #{mixins.toEm(450)}){
-      min-width: none;
+      min-width: 0;
       width: 100%;
     }
   }
@@ -859,4 +859,8 @@ img {
   img {
     opacity: 0;
   }
+}
+
+.f-iframe {
+  min-height: 50dvh;
 }

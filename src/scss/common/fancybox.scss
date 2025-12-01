@@ -35,13 +35,17 @@
       }
     }
 
-    .section-title {
-      order: -1;
-      margin: mixins.toRem(16) 0;
-
-      &:empty {
-        display: none;
-      }
+    &.is-horizontal .f-button.is-arrow.is-prev, 
+    &.is-horizontal .f-button.is-arrow.is-next {
+      transform: none;
+      inset: auto auto 0 auto;
+      height: calc(100% - var(--title-height, 0px));
+    }
+    &.is-horizontal.is-ltr .f-button.is-arrow.is-prev {
+      left: var(--f-arrow-pos, 0);
+    }
+    &.is-horizontal.is-ltr .f-button.is-arrow.is-next {
+      right: var(--f-arrow-pos, 0);
     }
   }
 
@@ -64,6 +68,30 @@
       opacity: 1;
     }
   }
+
+  &__mhztitle {
+    order: -1;
+    margin: mixins.toRem(16) 0;
+    font-weight: 700;
+    line-height: math.div(42 , 32);
+    color: var(--dark-text-color);
+    font-size: mixins.toRem(32);
+    &:not(:last-child) {margin-bottom: mixins.toRem(24);}
+    @media (width < #{mixins.toEm(variables.$pc)}){
+      font-size: mixins.toRem(24);
+      &:not(:last-child) {margin-bottom: mixins.toRem(16);}
+    }
+    @media (width < #{mixins.toEm(600)}){
+      font-size: mixins.toRem(20);
+    }
+    @media (width < #{mixins.toEm(variables.$mobileSmall)}){
+      font-size: mixins.toRem(16);
+    }
+
+    &:empty {
+      display: none;
+    }
+  }
 }
 
 .f-carousel {
@@ -73,9 +101,17 @@
 }
 
 .f-button {
-  svg {
-    path {
-      stroke: var(--white);
+  &[data-fancybox-close] {
+    min-width: mixins.toRem(24);
+    min-height: mixins.toRem(24);
+    svg {
+      path {
+        stroke: var(--white);
+      }
     }
   }
+}
+
+.f-panzoom__viewport {
+  pointer-events: none;
 }

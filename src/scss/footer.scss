@@ -12,7 +12,7 @@
     top: mixins.toRem(-92);
     height: mixins.toRem(183);
     width: mixins.toRem(183);
-    background: url('/img/icons/star.svg');
+    background: url('../img/icons/star.svg');
     background-size: contain;
     background-repeat: no-repeat;
     rotate: 30deg;
@@ -41,7 +41,7 @@
     right: 6%;
     height: mixins.toRem(140);
     width: mixins.toRem(140);
-    background: url('/img/icons/star.svg');
+    background: url('../img/icons/star.svg');
     background-repeat: no-repeat;
     background-size: contain;
     z-index: -1;
@@ -320,7 +320,7 @@
   &__row{
     display: flex;
     align-items: center;
-    @media (width < #{mixins.toEm(500)}){
+    @media (width < #{mixins.toEm(variables.$mobile)}){
       flex-direction: column;
     }
   }
@@ -333,13 +333,8 @@
     @media (width < #{mixins.toEm(variables.$tablet)}){
       margin-right: mixins.toRem(24);
     }
-    @media (width < #{mixins.toEm(700)}){
-      margin-right: mixins.toRem(20);
-    }
-    @media (width < #{mixins.toEm(500)}){
+    @media (width < #{mixins.toEm(variables.$mobile)}){
       margin-right: 0;
-      margin-bottom: mixins.toRem(16);
-      width: 100%;
     }
   }
   &__info{
@@ -390,13 +385,18 @@
 
 .about-prod{
   padding:mixins.toRem(7) mixins.toRem(36);
-  background-color: variables.$white;
   border-radius: mixins.toRem(10);
+  @media (width >= #{mixins.toEm(variables.$mobile)}){
+    background-color: variables.$white;
+  }
   @media (width < #{mixins.toEm(1250)}){
     padding: mixins.toRem(10) mixins.toRem(28);
   }
   @media (width < #{mixins.toEm(variables.$tablet)}){
     padding: mixins.toRem(18) mixins.toRem(13);
+  }
+  @media (width < #{mixins.toEm(variables.$mobile)}){
+    &:not(:last-child) {margin-bottom: mixins.toRem(16);}
   }
   @media (width < #{mixins.toEm(700)}){
     padding: 0;
@@ -404,16 +404,16 @@
   &__row{
     display: flex;
     align-items: center;
-    @media (width < #{mixins.toEm(700)}){
-      padding: mixins.toRem(16) mixins.toRem(34);
-      flex-direction: column;
-      align-items: center;
-    }
-    @media (width < #{mixins.toEm(500)}){
-      flex-direction: row;
-      padding: mixins.toRem(7);
-      justify-content: center;
+    @media (width < #{mixins.toEm(variables.$mobile)}){
       flex-wrap: wrap;
+      gap: mixins.toRem(8);
+      align-items: stretch;
+
+      :nth-child(1 of .about-prod__right) {
+        order: -1;
+        flex: 1 1 100%;
+        align-items: flex-start;
+      }
     }
   }
   &__left{
@@ -425,57 +425,60 @@
         max-height: mixins.toRem(36);
       }
     }
+
+    @media (width < #{mixins.toEm(variables.$mobile)}){
+      display: flex;
+      justify-content:center;align-items: center;
+      background-color: variables.$white;
+      padding: mixins.toRem(12);
+      border-radius: mixins.toRem(10);
+      gap: mixins.toRem(4);
+      flex: 1 1 calc(50% - mixins.toRem(8));
+    }
   }
   &__right{
-    margin-left: mixins.toRem(24);
-    padding-left: mixins.toRem(24);
-    position: relative;
-    &:before{
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      height: mixins.toRem(66);
-      width: mixins.toRem(1);
-      background: var(--about-prod-bd-color);
-      @media (width < #{mixins.toEm(variables.$tablet)}){
-        height: mixins.toRem(50);
-      }
-      @media (width < #{mixins.toEm(700)}){
-        height: mixins.toRem(1);
-        width: mixins.toRem(114);
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      @media (width < #{mixins.toEm(500)}){
+    @media (width >= #{mixins.toEm(variables.$mobile)}){
+      margin-left: mixins.toRem(24);
+      padding-left: mixins.toRem(24);
+      position: relative;
+      &:before{
+        content: '';
+        position: absolute;
         left: 0;
         top: 50%;
         transform: translateY(-50%);
-        height: mixins.toRem(50);
+        height: mixins.toRem(66);
         width: mixins.toRem(1);
+        background: var(--about-prod-bd-color);
+        @media (width < #{mixins.toEm(variables.$tablet)}){
+          height: mixins.toRem(50);
+        }
+        @media (width < #{mixins.toEm(700)}){
+          height: mixins.toRem(1);
+          width: mixins.toRem(114);
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        @media (width < #{mixins.toEm(500)}){
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          height: mixins.toRem(50);
+          width: mixins.toRem(1);
+        }
+  
       }
-
     }
-    @media (width < #{mixins.toEm(variables.$tablet)}){
+
+    @media (width < #{mixins.toEm(variables.$mobile)}){
       display: flex;
-      flex-direction: column;
-      padding-left: mixins.toRem(12);
-      margin-left: mixins.toRem(12);
-    }
-    @media (width < #{mixins.toEm(700)}){
-      margin-left: 0;
-      padding-left: 0;
-      margin-top: mixins.toRem(7);
-      padding-top: mixins.toRem(7);
-
-    }
-    @media (width < #{mixins.toEm(500)}){
-      padding-top: 0;
-      margin-top: 0;
-      padding-left: mixins.toRem(20);
-      margin-left: mixins.toRem(20);
+      justify-content:center;align-items: center;
+      background-color: variables.$white;
+      padding: mixins.toRem(12);
+      border-radius: mixins.toRem(10);
+      gap: mixins.toRem(4);
+      flex: 1 1 calc(50% - mixins.toRem(8));
     }
   }
   &__label{
@@ -500,7 +503,7 @@
     @media (width < #{mixins.toEm(variables.$tablet)}){
       flex-direction: column;
     }
-    @media (width < #{mixins.toEm(500)}){
+    @media (width < #{mixins.toEm(variables.$mobile)}){
       flex-direction: row;
     }
     a{

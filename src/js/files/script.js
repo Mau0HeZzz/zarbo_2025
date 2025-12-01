@@ -30,6 +30,32 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     });
   }
+
+  const dateTimeInputs = document.querySelectorAll('input[data-tariff-datetime-hid]');
+  if (dateTimeInputs.length) {
+    dateTimeInputs.forEach(dateTimeInput => {
+      const opts = {
+        month: '2-digit',
+        day: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }
+      const date = new Date().toLocaleDateString('ru-RU', opts).replaceAll('.','-').replace(',','');
+      dateTimeInput.value = date;
+    })
+  }
+})
+
+document.addEventListener('click', (e) => {
+  const mobileDropdownTrigger = e.target.closest('.main-menu__item--parent>a') || e.target.closest('.submenu__item--is-parent>a');
+  if (mobileDropdownTrigger) {
+    const parent = mobileDropdownTrigger.closest('.submenu__item--is-parent') || mobileDropdownTrigger.closest('.main-menu__item--parent');
+    if (parent) {
+      e.preventDefault();
+      parent.classList.toggle('is-open');
+    }
+  }
 })
 
 function setFormRowCols(formRow) {
