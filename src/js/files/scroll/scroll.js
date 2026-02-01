@@ -81,7 +81,15 @@ export function pageNavigation() {
 		} else if (document.querySelector(`.${getHash()}`)) {
 			goToHash = `.${getHash()}`;
 		}
-		goToHash ? gotoBlock(goToHash, true, 500, 20) : null;
+
+    let noHeader = false;
+    const header = document.querySelector('.header');
+    if (header) {
+      const pos = window.getComputedStyle(header).getPropertyValue('position')
+      noHeader = pos === 'fixed' || pos === 'absolute';
+    }
+
+		goToHash ? gotoBlock(goToHash, noHeader, 500, 20) : null;
 	}
 }
 // Работа с шапкой при скроле
